@@ -1,3 +1,16 @@
+import sqlite3
+
+conn = sqlite3.connect('cargame.db"=') # get a connect object
+cur = conn.cursor()
+
+cur.execute('''
+DROP TABLE IF EXISTS counts''')
+
+cur.execute('''
+CREATE TABLE Level (progress NUMERIC)
+CREATE TABLE Users (name TEXT email BLOB password BLOB)''')
+
+
 print('''
 
    __---~~~~--__                      __--~~~~---__
