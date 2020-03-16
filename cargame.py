@@ -38,12 +38,12 @@ Tips: Type Help for user actions.
 start - to turn on your car
 stop - to turn off your car
 quit - to quit
-Buckle - Put your seat belt on
-Mirrors - Check all mirrors
-Clicker -Open garage
-D - put car in Drive
-P - Put car in Park
-R - put car in Reverse
+buckle - Put your seat belt on
+mirrors - Check all mirrors
+clicker -Open garage
+drive - put car in Drive
+park - Put car in Park
+reverse - put car in Reverse
 map - View the entire map
 unlock - Unlock your car
 lock - Lock your car
@@ -136,9 +136,22 @@ while True:
     else:
         print("Sorry, that's not possible.")
 
+while True:
+    command = input("Engine is now on and you are ready to go! Note: Your garage is still closed. What would you like to do now?: ").lower()
+    if command == "clicker":
+        if clicker:
+            print("Your garage is already open.")
+        else:
+            clicker = True
+            print("As your garage door opens, you rev the engine with anticipation: ")
+            break
+    elif command == "quit":
+        break
+    else:
+        print("Sorry, that's not possible.")
 
 while True:
-    command = input("Engine is now on and you are ready to go! What would you like to do now?: ").lower()
+    command = input("Garage is finaly open! What would you like to do now?: ").lower()
     if command == "drive":
         if drive:
             print("Your car is already in Drive")
@@ -151,4 +164,25 @@ while True:
     else:
         print("Sorry, that's not possible.")
 
+print('''
+     
+clllccccc:cccccccccccclllcccccccccc::::cccccccccccc:ccccllcc:;;;cccccccc::cc::;::::cc::::cllcc:::ccll:;;::cclllcccccc::;;::::::lodddodddddddddddddddddddooooooooooodollooolllllllllllllllllllllllllclllllllllllloooooooloooooooooolllllllllllllccccllllclllllllllllllllllllllllcllcccccllllcclllllllllllllllllllllccccccccccclccccccccccccccccclcc:;;:::::::;;
+::cc:::::::::::::::ccccccccccccccccccccccccccccccccccccccc:::;;:ccccccccccc::::ccccccccc:cccc:::::ccc:::cccccccccc::::c:::::::;::cc:cccclcccccllclllllllllllllloooodolllllllllcccllllllccccccccclllllllllccccccllllcclllllllllccccccccccccllcllcccccclcccccccccccccccccccclc:::cc::::::ccc:ccc::ccccc::c::::::::::::::,'';;,;::;,'';::;:cccc:;;;;;;;;,,,
+;;;;;;;;;;;;;;;;;;;;;;;;;;::;::;::::::;::::::::::::::::::::::::::::::::c::::::::::::::::::::;::::::;:::;:::::::::::::::::::::::::c:::c:::ccccccccclllllcclllllllcclllooooollcc:::clllloolccccllllooolllllllllllolllllcccccccccccccccccccccccccc:cccccccccccccccccccccccllccclccccc::::cccc::cc:c:::ccccccclc:cccclccc:;,,;:;;;;::;;:::;;;:ccccllcccclc::::;;,,
+;;;;;;;;;;;;;;;;;;;;::::;:::;::::::::::::::::::::::::::::::::::::::::::c::::::;;::::::::::::::::::::cc::c:;:::;:::::;:c::ccc::cc::::::::lcccccccclllllllllcclllcccllllllcc::::;::;;;;;;::::::::::llll;;;;;;;;;;;;;;;;;;::ccccccccllllcccclc:;;cc:cccccccccccc::cccccccc::cccccclccccclc:lolllcc:clc:clllc:clllcccc::::c:::
+;;;;;;;;;::;;;;;;;;;;;::::;;;;;;;;::;;;;;;;;;;;;;;;;;;::;;:::::::::;:::;:c:::::;;;;;;;::::::::::::::c:::::::::::ccccccllllllllolcloolc:clclodolloolccccllcccclllcccc::;;:;;;;::::::::::::::::::::llll;;;;;;;;;;;;;;;;;;;;;lodddddddddddddoodllooloollcllc::coooollllllllllcllcloocclolollllooooc:lc:llllllllccccc:clllcclllllllcclcllc::cccccc:cllll::cl::cc::c
+;;;;;;;;:;;;;:;;;::;;;;;::;::;;;;;::;;;;:;;;;;;;::;::;,;;:::;;::::::;::;:c:::;;:;;;;::;;;::cccc::::ccclc:ccclccloooddxxxxdoodxxdddddll::cccllllloollllccccccccc:;;;;;;;;;;;;;::::::::::::::::::::lll:::::::::::::::::::::::oooooooooddddddddddddddoooooddooddool,'clc:;,clcc:;llllccodlcclloddllc:;clolloollooc:::;cllllcloooollollol::clcll:;;;:ll:::cc:ccccc
+;;;;;;;;;;;;;;;;;;::;,;cc:::::;;::;;;;:::::::;;;;;;::;;:::::;;:;,;;;;:::::;;::::::::llcccccooool:loolldolllloolldddxddxkkxxxxddoooolccclllllllcccccccccccc:;,,,;;;;;;;;;;;;;:::::::;:::::::::::::llll:::::::::::::::::::::::::::cccloooooooooooddddddddddddodoool;,;llc;;:,,:loolcclllccllcclolclooc,,:oolc::lddlclllodxol:;clclooclllolllcooc,',:c:::cccc:;;;;
+;,,:c:::;;::::;;;::;,.,clccccc;,;;,';:c:::cl::;:c:;;;::ccccccllooolllllloooooodxddxxxdxxkxdllxdloddxxxxxdxxkxxxxddxdoooollllllccllollccc:::cllcc:;,,,,,;;;,,,,,,,,,,;,,,;;;;;;;;;;;;;::::::::::::llll:::::::::::::::::::::::::::cllcccccclllllllllllloollooodooooodooddooooolooddooolod:..,clc::lll::::ll:,;:clol:cclldxoc;:llcloc;;:coooc;clc:::;,:oolllc;;;;;
+;;;;;;;::;;:::::;;;;:llcc:;;;,;cc:cccc:'.....'collclloooddddxxxkxxxxxxxxxxxxxkkxxxxxxxooddloxdodxddxxxxxooxdoolccolllllccllccccccc:;;:ccclc:;,,,,,,,;;,,,,,,,,,,,,,;;:::;;;,:::::::;:::::::::::::llll:::::::::::::::::::::::::::;;:::cccclllooooooloooooooddddxdooddddoddddddol::cloolcclooolllll:....,collcccccl:'',:ooccccccclllc;;cccll:;;:c:c;'':l::
+c:;;;,;::;;:cc:,.........':looo:::;:cllclooolcccc::ldxxxxxxxxxkkkkkkxxddxkxxolodddxxxddxxxxxddxxxxkkxxxxxxdxxdollllllcclllcccccccccc:;;:cllcc:;,,,,,,,,,,,;;;;;;;;;;;;;:::::::;::::::::::::::::::llll:::::::::::::::::::::::::::c:;;;;;;;:cllloooddddoodddddxdlcodddoddooodoooddooooooloooddol:;,,,,;coooollc;..   lc:lo:.:c:::::;:cllclcccccc:;:cc
+l:;;;;;;,,cc:'..........':llddoddooodddxxxxxxxxdooxxdxxxxxxxxxxxxxkkxdoodxkxxdxxollooxxdxxdxkkxxxxxxxxxxddooollccclccccllllcccc:;;:cclccc:;,,,,,,,,,,,;;;;;;;;;;;;;:::::::;::::::::::::::::::::::llll:::::::::::::::::::::::::::c:;;;;;;;:clloddoddoddddxdodxxxdxxddddddddddoddoloddddooooddddooddddddoc;,;:lccll:,;ccc;;;c:;,:loodlcoolc;;cc
+;;;:ll:clllc:;ccllccllooddxxxxxxxxxxxxxxxxxkdoodooxxxxxxxxxxkkxddxxdccloolldxdddddxlcldxxdodxdxxddooooolcccclllclllcccccc:;;;;:clllc:;;,,,,,,,,,,,;;;;;;;;;;;;;:::::::;::::::::::::::::::::::::::llll::::::::::::::::::::::::c:;;;;;;;:::::::::cllllloolodxddddxxdddddxddddddddddddddddddddddoloodddoooollloddlc::llloloolllc...;llc:clccllll
+clodxxdxxxloddxxdxdoodxd:,lxxxxxxxxdoddxxxxxdodddddddxxxxxdclxl:oddl::llolldxdxxxdloollllolccclccllllccclcclllccc:::;;;;;:ccllcc:;,,,;,,,,,,,,,,,;;;;;;;;;;;;;:::::::;:::::::::::::::::::::::::::llll::::::::::::::::::::::::c:;;;;;;;:::::::::;;;;::::cloooododddddddddddddddddddddddddddolcoddddoooolodxdolccloolooolllc,....',,,;:cccccc:c
+dddxxxxxxxdxkxddxxd;,oxdl;cdxxxxxxdoodxxxxxxxxxkkdlldxxxxxl:cddoddxxdxxdoc,,:llcc:;cllllllc::clllllolllllccc:;;;,,,;::clllccc:;,,,,,,,,,,,,,,',,,',,,;;;;;;;;;;;;;,,lkOo;;;;;::ccc::::;;::;;;;;;:llll;::::::::::;;;;;;;;:::::::::::::::;;,;;,,;;;::;:;,;:;;cccllllloooooooddoddodxdddddddddc,:odddddddddooooooolloooollooollllllclol:;;oolllccc
+dodxxxxxl::odccodxdl:;cdoc:dkkxxxlcoxxxxxxxxxxxxxdoxxxxddxddddxxxxddl:c:,,;,;:cccccclollllccclllllllc::;;;;;;,,;:clllccccccc,,,,,,,,,,,,,,,;;;;;;;;;;;;,,;::::::;,;;;;::::::::::;;::;;;,;;;;;;;;:llll;:::;;;;;;;;;;::::::::;::::::;;,,,::;;::::ccc:::::::::::cccclccclllooooddodddolodddddoooddolloloooolooolooddoddoooooddooooooooooo
+::lddxdolodxxxxxooxkdloddlldxxxxo::oxxxdodxxxxxddoodddxxdddddxxoc::c:;:c;clcllllllc:clcllllllcc:;;;;,,,,,;;:cllllllllllllll:;,,,,,,,,,,,;;;;;;;;;;;;,,,,cooc,,;;;:::::::::::;;;::;;,,;;;;;;;;;;;;llll;;:::;;;;;;,,,;::::::::::::::;,,,,,;:cc:;;;::::c;,:::::::cccclllllooooollooooododdoool,.:oooddolc:cooooooooooooooodddxdoooloo
+odddxxxxxxxxxxd:'cxxxxxxxdddxddddddxxddooddxdodxxl::oddoodooolc;;:lllclllc;,:lc::lllllcccc::;;,,;;;;;::llllllllllllllll:;,,,,,,,,;;;;;;;;;;;;,,,;,,,,;;::::::cc::;;;;;;;;;;;;;;;;;;;,,::::::::::,llll;;::;;;;;;;;;;;;;,,,;:::::::::;::;;;;;;;;;;;ccc:,;;,,,,,,,,,,,,,cccccccc:;;:::cclooolcccclllooooooooccodooddooc,;oodlclooloddddddoooolooloo,
 
+
+''')
