@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect('cargame.db"=') # get a connect object
+conn = sqlite3.connect('cargame.db') # get a connect object
 cur = conn.cursor()
 
 cur.execute('''
